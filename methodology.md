@@ -14,9 +14,9 @@ Modelling the shortest routes in the sense of generalized cost, i.e. taking into
 $$C_g = P + V_tT$$
 
 Where 
-- C_g$ : generalized cost of the journey
-- P$ : the monetary price of the journey.
-- V_t: the value of time. This value corresponds to the value given to each minute spent in transport. It is evaluated at around $10.7€_{2015}$ by the socio-economic benchmark for transport.
+- $C_g$ : generalized cost of the journey
+- $P$ : the monetary price of the journey.
+- $V_t$ : the value of time. This value corresponds to the value given to each minute spent in transport. It is evaluated at around $10.7€_{2015}$ by the socio-economic benchmark for transport.
 
 ## Hierarchical contraction algorithm
 
