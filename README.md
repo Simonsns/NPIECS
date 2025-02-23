@@ -1,4 +1,4 @@
-# NPIECS (National Planning for Infrastructures and Electric Charging Stations)
+# NPIECS (National Planning for Infrastructures and Electric Charging Stations) (Code confidential)
 
 (Simon Senegas, Eric Jeannière, 2024)
 
