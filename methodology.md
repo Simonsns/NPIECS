@@ -36,7 +36,6 @@ The shortest-path algorithm used to achieve significant improvements in computat
 
 We can define a directed graph $G = (V,E,\omega)$, with $V$ the set of ordered vertices, $E$ the set of arcs, and $\omega$ the weight function associated with the arcs.
 
-
 #### Vertex contraction
 
 The contraction of any vertex consists in removing it from the graph while preserving the minimum distance between the other vertices. To do this, consider all pairs $(u,w)$ such that :
@@ -57,7 +56,7 @@ A path is made up of a displacement origin, the series of identifiers of the arc
 
 FIG 
 
-### Choix des aires d'arrêts pour recharge
+### Choice of stop areas for recharging
 
 For each class of vehicle, it is assumed that drivers set off with 100% battery power, and that they drive as far as possible before stopping to recharge if their effective range does not allow them to reach their destination. This somewhat frustrating method potentially involves stopping only a few km before the destination, but this is partially offset by the symmetrization of the OD matrix into annual averages.  In addition, the multiplicity of ODs (around 3,000 zones in mainland France) should offset the risk of over-concentrating recharging in certain areas. In any case, we consider that the results of the model at the scale of a single area are not at all reliable, as many other parameters come into play (the price of recharging, the services offered, etc.). The results of the microscopic model only make sense when aggregated at the level of large sections (between major road junctions).
 
