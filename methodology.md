@@ -12,7 +12,7 @@ The model predicts the itineraries of individuals and then calculates for each a
 
 This choice of architecture was motivated by the difficulty of rapidly developing such programs in C++. As data analysis and management are much more accessible in Python, the intermediate route simplification module was first coded in Python, even though the final architecture integrates all the most intensive functions in C++ to save computing time.
 
-FLOWCHART HERE
+![](npiecs_illustrations/flowchart_global.png "Model illustration (flowchart in french)").
 
 ### Route management
 
@@ -36,6 +36,7 @@ The shortest-path algorithm used to achieve significant improvements in computat
 
 We can define a directed graph $G = (V,E,\omega)$, with $V$ the set of ordered vertices, $E$ the set of arcs, and $\omega$ the weight function associated with the arcs.
 
+
 #### Vertex contraction
 
 The contraction of any vertex consists in removing it from the graph while preserving the minimum distance between the other vertices. To do this, consider all pairs $(u,w)$ such that :
@@ -52,17 +53,25 @@ This hierarchical structure, in which each arc respects the order, speeds up sho
 
 #### Path simplification
 
-A path is made up of a displacement origin, the series of identifiers of the arcs taken, and the associated destination. Distances in km are attached to the identifiers of the arcs making up the paths.  The next step is to condense this path in order to simply calculate the cumulative distance between each area. In the modeled network, the areas are more or less in the middle of the arcs. For simplicity's sake, we'll assume that the areas are positioned in the middle of the section on which they are located, i.e. we'll add **half the length of the section** to the distance before and after the area (the small error made is cancelled out by the symmetry of journeys in both directions on average over the year). 
+A path is made up of a displacement origin, the series of identifiers of the arcs taken, and the associated destination. 
 
-FIG 
+![](npiecs_illustrations/trajet.png "Travel structure (french)").
 
-### Choice of stop areas for recharging
+
+Distances in km are attached to the identifiers of the arcs making up the paths.  The next step is to condense this path in order to simply calculate the cumulative distance between each area. 
+
+![](npiecs_illustrations/segmentation.png "Travel segmentation (french)").
+
+
+In the modeled network, the areas are more or less in the middle of the arcs. For simplicity's sake, we'll assume that the areas are positioned in the middle of the section on which they are located, i.e. we'll add **half the length of the section** to the distance before and after the area (the small error made is cancelled out by the symmetry of journeys in both directions on average over the year). 
+
+### Choix des aires d'arrêts pour recharge
 
 For each class of vehicle, it is assumed that drivers set off with 100% battery power, and that they drive as far as possible before stopping to recharge if their effective range does not allow them to reach their destination. This somewhat frustrating method potentially involves stopping only a few km before the destination, but this is partially offset by the symmetrization of the OD matrix into annual averages.  In addition, the multiplicity of ODs (around 3,000 zones in mainland France) should offset the risk of over-concentrating recharging in certain areas. In any case, we consider that the results of the model at the scale of a single area are not at all reliable, as many other parameters come into play (the price of recharging, the services offered, etc.). The results of the microscopic model only make sense when aggregated at the level of large sections (between major road junctions).
 
 To go into more detail, the calculation algorithm can be simplified as follows. 
 
-FLOWCHART
+![](npiecs_illustrations/flowchart.png "Travel segmentation (french)").
 
 The algorithm runs through all the ODs one by one for each vehicle class, as follows:
 - The user starts from origin O with his battery fully charged.
@@ -80,4 +89,5 @@ In all cases, at the last charging stop, recharging is calculated to reach the f
 
 - At each charging stop, the value of the energy charged and the associated charging time are recorded.
 - The total energy charged at an area is the weighted sum of all ODs travelled (if the user has charged at the area studied), distinguishing between vehicle classes.
+
 
